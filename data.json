@@ -1,0 +1,55 @@
+{
+  "shuttles": [{
+      "id": "fc704c16fd79",
+      "company": "BlueOrigin",
+      "points": 25000,
+      "duration": 590,
+      "segment": [{
+        "duration": 590,
+        "departureTime": "2022-10-10T21:30-03:00",
+        "arrivalTime": "2023-03-11T06:20-04:00",
+        "origin": "H442T",
+        "destination": "ISS"
+      }]
+    },
+    {
+      "id": "3fe21e46fd78",
+      "company": "VirginGalactic",
+      "points": 20000,
+      "duration": 862,
+      "segment": [{
+        "duration": 635,
+        "departureTime": "2022-04-16T20:25-03:00",
+        "arrivalTime": "2022-10-17T06:00-04:00",
+        "origin": "H553P",
+        "destination": "MARS Elysium Planitia"
+      }]
+    },
+    {
+      "id": "8bf2b3d7be09",
+      "company": "SpaceX",
+      "points": 17000,
+      "duration": 1050,
+      "segment": [{
+        "duration": 515,
+        "departureTime": "2022-10-10T21:25-03:00",
+        "arrivalTime": "2023-10-11T05:00-04:00",
+        "origin": "HT331Y",
+        "destination": "ISS"
+      }]
+    },
+    {
+      "id": "8bf2b3d7be09",
+      "company": "SpaceX",
+      "points": 17000,
+      "duration": 1050,
+      "segment": [{
+        "duration": 515,
+        "departureTime": "2022-10-10T21:25-03:00",
+        "arrivalTime": "2023-10-11T05:00-04:00",
+        "origin": "HT331Y",
+        "destination": "MARS Elysium Planitia"
+      }]
+    }
+  ]
+}
