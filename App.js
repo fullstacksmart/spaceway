@@ -1,14 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
-import Dashboard from './containers/home';
-// import { Spaceway } from './splashScreens/spaceway'
+import { SafeAreaView, View, StyleSheet } from 'react-native';
+import Home from './Screens/Home';
+
+const headerSource = require('./assets/header.png');
 
 export default function App() {
   return (
-    <View>
-      <Text>SPACEWAY - explore beyond.</Text>
-      <Dashboard></Dashboard>
-    </View>
+    <SafeAreaView>
+      <View style={styles.body}>
+        <Home />
+      </View>
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  header: {
+    resizeMode: 'contain',
+    width: 110,
+    top: 15, //fix stylying
+  },
+  body: {
+    backgroundColor: 'black',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});

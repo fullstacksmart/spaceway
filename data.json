@@ -2,6 +2,7 @@
   "shuttles": [{
       "id": "fc704c16fd79",
       "company": "BlueOrigin",
+      "ship": "Olympia",
       "points": 25000,
       "duration": 590,
       "segment": [{
@@ -9,12 +10,14 @@
         "departureTime": "2022-10-10T21:30-03:00",
         "arrivalTime": "2023-03-11T06:20-04:00",
         "origin": "H442T",
-        "destination": "ISS"
+        "destination": "ISS",
+        "image": "https://cdn.vox-cdn.com/thumbor/6qRqrxifrPvJJXAPyYtD2thhuDU=/0x141:1050x666/fit-in/1200x600/cdn.vox-cdn.com/uploads/chorus_asset/file/19617733/lego_iss_international_space_station_007_32.jpg"
       }]
     },
     {
       "id": "3fe21e46fd78",
-      "company": "VirginGalactic",
+      "company": "Virgin Galactic",
+      "ship": "Achilles",
       "points": 20000,
       "duration": 862,
       "segment": [{
@@ -22,12 +25,15 @@
         "departureTime": "2022-04-16T20:25-03:00",
         "arrivalTime": "2022-10-17T06:00-04:00",
         "origin": "H553P",
-        "destination": "MARS Elysium Planitia"
+        "destination": "MARS Elysium Planitia",
+        "image": "https://menafn.com/updates/pr/2020-03/05/N_6c11ad0c-9image_story.jpg"
+
       }]
     },
     {
-      "id": "8bf2b3d7be09",
+      "id": "8bf2b3d7be66",
       "company": "SpaceX",
+      "ship": "Hercules 370",
       "points": 17000,
       "duration": 1050,
       "segment": [{
@@ -35,12 +41,14 @@
         "departureTime": "2022-10-10T21:25-03:00",
         "arrivalTime": "2023-10-11T05:00-04:00",
         "origin": "HT331Y",
-        "destination": "ISS"
+        "destination": "ISS",
+        "image": "https://cdn.vox-cdn.com/thumbor/6qRqrxifrPvJJXAPyYtD2thhuDU=/0x141:1050x666/fit-in/1200x600/cdn.vox-cdn.com/uploads/chorus_asset/file/19617733/lego_iss_international_space_station_007_32.jpg"
       }]
     },
     {
       "id": "8bf2b3d7be09",
       "company": "SpaceX",
+      "ship": "Zeus",
       "points": 17000,
       "duration": 1050,
       "segment": [{
@@ -48,7 +56,8 @@
         "departureTime": "2022-10-10T21:25-03:00",
         "arrivalTime": "2023-10-11T05:00-04:00",
         "origin": "HT331Y",
-        "destination": "MARS Elysium Planitia"
+        "destination": "MARS Elysium Planitia",
+        "image": "https://menafn.com/updates/pr/2020-03/05/N_6c11ad0c-9image_story.jpg"
       }]
     }
   ]
