@@ -2,7 +2,6 @@ import React from 'react';
 import { View, FlatList, SafeAreaView, Text, StyleSheet } from 'react-native';
 
 const ShuttleEvent = ({ shuttle }) => {
-  console.log('shuttle', shuttle.segment.destination);
   const destination = shuttle.segment.map((el) => (
     <Text>{el.destination}</Text>
   ));

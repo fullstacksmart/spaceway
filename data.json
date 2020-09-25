@@ -11,7 +11,7 @@
         "arrivalTime": "2023-03-11T06:20-04:00",
         "origin": "H442T",
         "destination": "ISS",
-        "image": "https://cdn.vox-cdn.com/thumbor/6qRqrxifrPvJJXAPyYtD2thhuDU=/0x141:1050x666/fit-in/1200x600/cdn.vox-cdn.com/uploads/chorus_asset/file/19617733/lego_iss_international_space_station_007_32.jpg"
+        "image": "../assets/isspreview.mp4"
       }]
     },
     {
@@ -26,7 +26,7 @@
         "arrivalTime": "2022-10-17T06:00-04:00",
         "origin": "H553P",
         "destination": "MARS Elysium Planitia",
-        "image": "https://menafn.com/updates/pr/2020-03/05/N_6c11ad0c-9image_story.jpg"
+        "image": "../assets/marspreview.mp4"
 
       }]
     },

@@ -1,12 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import {
-  FlatList,
-  Text,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
+import { FlatList, View, StyleSheet, TouchableOpacity } from 'react-native';
 import ShuttlePreview from '../Components/ShuttlePreview';
+import { NavigationContainer } from '@react-navigation/native';
 
 const URL = 'http://localhost:3000/shuttles';
 
@@ -26,15 +21,15 @@ const Home = ({ navigation }) => {
   }, []);
 
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         data={shuttles.slice(0, 2)}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <ShuttlePreview shuttle={item} />}
       />
-      <TouchableOpacity style={styles.buttonStyle} title="BUTTON">
+      {/* <TouchableOpacity style={styles.buttonStyle} title="BUTTON">
         <Text style={styles.buttonText}>Press Here</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 };
@@ -43,7 +38,7 @@ const styles = StyleSheet.create({
   buttonStyle: {
     width: 160,
     height: 60,
-    backgroundColor: 'grey',
+    backgroundColor: '#242323',
     color: 'white',
     borderRadius: 5,
   },
