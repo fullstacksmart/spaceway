@@ -1,13 +1,18 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { FlatList, View, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  FlatList,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+} from 'react-native';
+
 import ShuttlePreview from '../Components/ShuttlePreview';
-import { NavigationContainer } from '@react-navigation/native';
 
 const URL = 'http://localhost:3000/shuttles';
 
 const Home = ({ navigation }) => {
   const [shuttles, setShuttles] = useState([]);
-
   const handleFetchShuttles = useCallback(async () => {
     const result = await fetch(URL);
     if (result.ok) {
@@ -25,11 +30,23 @@ const Home = ({ navigation }) => {
       <FlatList
         data={shuttles.slice(0, 2)}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <ShuttlePreview shuttle={item} />}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            title="button"
+            onPress={() => navigation.navigate('ShuttleEvent', item)}
+            shuttle={item}
+          >
+            <ShuttlePreview shuttle={item} />
+          </TouchableOpacity>
+        )}
       />
-      {/* <TouchableOpacity style={styles.buttonStyle} title="BUTTON">
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        title="BUTTON"
+        onPress={() => navigation.navigate('Details')}
+      >
         <Text style={styles.buttonText}>Press Here</Text>
-      </TouchableOpacity> */}
+      </TouchableOpacity>
     </View>
   );
 };
@@ -41,6 +58,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#242323',
     color: 'white',
     borderRadius: 5,
+    alignSelf: 'center',
   },
   buttonText: {
     marginTop: 23,

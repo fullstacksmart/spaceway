@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { Video } from 'expo-av';
 
 const videoSource = require('../assets/marspreview.mp4'); //hardcoded video
@@ -7,22 +7,20 @@ const videoSource = require('../assets/marspreview.mp4'); //hardcoded video
 const ShuttlePreview = ({ shuttle }) =>
   shuttle.segment.map((el) => (
     <View style={styles.shuttlePreview}>
-      <TouchableOpacity onPress={() => {}}>
-        <Video
-          style={styles.videoStyle}
-          source={videoSource}
-          rate={1.0}
-          volume={1.0}
-          isMuted={true}
-          resizeMode="cover"
-          shouldPlay
-          isLooping
-        />
-        <Text style={styles.destinationStyle}>Discover {el.destination}</Text>
-        <Text style={styles.departureStyle}>
-          Next shuttle on {el.departureTime}
-        </Text>
-      </TouchableOpacity>
+      <Video
+        style={styles.videoStyle}
+        source={videoSource}
+        rate={1.0}
+        volume={1.0}
+        isMuted={true}
+        resizeMode="cover"
+        shouldPlay
+        isLooping
+      />
+      <Text style={styles.destinationStyle}>Discover {el.destination}</Text>
+      <Text style={styles.departureStyle}>
+        Next shuttle on {el.departureTime}
+      </Text>
     </View>
   ));
 
@@ -32,6 +30,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     width: 350,
     marginVertical: 5,
+    alignSelf: 'center',
   },
   destinationStyle: {
     paddingTop: 5,

@@ -11,7 +11,7 @@
         "arrivalTime": "2023-03-11T06:20-04:00",
         "origin": "H442T",
         "destination": "ISS",
-        "image": "../assets/isspreview.mp4"
+        "image": "https://www.newfoxy.com/wp-content/uploads/2018/10/US-Air-Force-backs-Blue-Origin-Glenn-rocket-500-million-4.jpg"
       }]
     },
     {
@@ -26,7 +26,7 @@
         "arrivalTime": "2022-10-17T06:00-04:00",
         "origin": "H553P",
         "destination": "MARS Elysium Planitia",
-        "image": "../assets/marspreview.mp4"
+        "image": "https://www.newfoxy.com/wp-content/uploads/2018/10/US-Air-Force-backs-Blue-Origin-Glenn-rocket-500-million-4.jpg"
 
       }]
     },
@@ -42,7 +42,7 @@
         "arrivalTime": "2023-10-11T05:00-04:00",
         "origin": "HT331Y",
         "destination": "ISS",
-        "image": "https://cdn.vox-cdn.com/thumbor/6qRqrxifrPvJJXAPyYtD2thhuDU=/0x141:1050x666/fit-in/1200x600/cdn.vox-cdn.com/uploads/chorus_asset/file/19617733/lego_iss_international_space_station_007_32.jpg"
+        "image": "https://www.newfoxy.com/wp-content/uploads/2018/10/US-Air-Force-backs-Blue-Origin-Glenn-rocket-500-million-4.jpg"
       }]
     },
     {
