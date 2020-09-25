@@ -13,7 +13,6 @@ const ShuttleEvent = (props) => {
 
   return (
     <View style={styles.detailsCard}>
-      {/* <Button onPress={() => goBack()} title="Home" /> */}
       <Image
         style={styles.img}
         source={{
@@ -41,7 +40,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#242323',
     borderColor: 'black',
     borderRadius: 10,
-    marginVertical: 20,
     marginHorizontal: 20,
     alignSelf: 'center',
     width: 350,

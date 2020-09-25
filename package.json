@@ -16,6 +16,7 @@
     "expo": "~38.0.8",
     "expo-av": "~8.2.1",
     "expo-font": "~8.2.1",
+    "expo-splash-screen": "^0.5.0",
     "expo-status-bar": "^1.0.2",
     "node-fetch": "^2.6.1",
     "react": "~16.11.0",

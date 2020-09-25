@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Text,
+  StatusBar,
 } from 'react-native';
 
 import ShuttlePreview from '../Components/ShuttlePreview';
@@ -27,6 +28,7 @@ const Home = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <StatusBar barStyle="light-content" />
       <FlatList
         data={shuttles.slice(0, 2)}
         keyExtractor={(item) => item.id}
