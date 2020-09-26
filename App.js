@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
 import Home from './Screens/Home';
@@ -10,7 +10,22 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
-export default function App() {
+const URL = 'http://localhost:3000/shuttles';
+
+const App = () => {
+  const [shuttles, setShuttles] = useState([]);
+  const handleFetchShuttles = useCallback(async () => {
+    const result = await fetch(URL);
+    if (result.ok) {
+      const shuttles = await result.json();
+      setShuttles(shuttles);
+    }
+  }, []);
+
+  useEffect(() => {
+    handleFetchShuttles();
+  }, []);
+
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -25,9 +40,9 @@ export default function App() {
           component={Spaceway}
           options={{ headerShown: false }}
         />
+
         <Stack.Screen
           name="Home"
-          component={Home}
           options={{
             headerLeft: null,
             headerTitle: (props) => (
@@ -42,7 +57,9 @@ export default function App() {
               shadowOpacity: 0,
             },
           }}
-        />
+        >
+          {(props) => <Home shuttles={shuttles} {...props} />}
+        </Stack.Screen>
         <Stack.Screen
           name="ShuttleEvent"
           component={(props) => <ShuttleEvent {...props} />}
@@ -63,7 +80,7 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
 
 const styles = StyleSheet.create({
   header: {
@@ -78,3 +95,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+export default App;

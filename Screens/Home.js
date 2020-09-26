@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React from 'react';
 import {
   FlatList,
   View,
@@ -10,22 +10,7 @@ import {
 
 import ShuttlePreview from '../Components/ShuttlePreview';
 
-const URL = 'http://localhost:3000/shuttles';
-
-const Home = ({ navigation }) => {
-  const [shuttles, setShuttles] = useState([]);
-  const handleFetchShuttles = useCallback(async () => {
-    const result = await fetch(URL);
-    if (result.ok) {
-      const shuttles = await result.json();
-      setShuttles(shuttles);
-    }
-  }, []);
-
-  useEffect(() => {
-    handleFetchShuttles();
-  }, []);
-
+const Home = ({ navigation, shuttles }) => {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
