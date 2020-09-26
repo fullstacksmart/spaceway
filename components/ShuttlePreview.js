@@ -18,7 +18,9 @@ const ShuttlePreview = ({ shuttle }) =>
         shouldPlay
         isLooping
       />
-      <Text style={styles.destinationStyle}>Discover {el.destination}</Text>
+      <Text style={styles.destinationStyle}>
+        {el.destination === 'ISS' ? 'Discover' : 'Explore'} {el.destination}
+      </Text>
       <Text style={styles.departureStyle}>
         Next shuttle on {el.departureTime}
       </Text>
