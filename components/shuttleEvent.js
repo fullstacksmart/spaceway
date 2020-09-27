@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button, Image } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
 const ShuttleEvent = (props) => {
   const shuttle = props.route.params;
@@ -9,7 +9,6 @@ const ShuttleEvent = (props) => {
   const departure = shuttle.segment.map((el) => (
     <Text>{el.departureTime}</Text>
   ));
-  const imageUrl = shuttle.segment.map((el) => <Text>{el.image}</Text>);
 
   return (
     <View style={styles.detailsCard}>

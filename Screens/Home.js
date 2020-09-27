@@ -14,6 +14,7 @@ const Home = ({ navigation, shuttles }) => {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
+      <Text style={styles.upcoming}>UPCOMING</Text>
       <FlatList
         data={shuttles.slice(0, 2)}
         keyExtractor={(item) => item.id}
@@ -30,9 +31,16 @@ const Home = ({ navigation, shuttles }) => {
       <TouchableOpacity
         style={styles.buttonStyle}
         title="BUTTON"
-        onPress={() => navigation.navigate('Details')}
+        onPress={() => navigation.navigate('Listing')}
       >
-        <Text style={styles.buttonText}>Press Here</Text>
+        <Text style={styles.buttonText}>MORE DATES</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        title="ISSTracker"
+        onPress={() => navigation.navigate('ISSTracker')}
+      >
+        <Text style={styles.buttonText}>ISS LIVE TRACKING</Text>
       </TouchableOpacity>
     </View>
   );
@@ -40,18 +48,25 @@ const Home = ({ navigation, shuttles }) => {
 
 const styles = StyleSheet.create({
   buttonStyle: {
-    width: 160,
-    height: 60,
+    margin: 5,
+    width: 190,
+    height: 40,
     backgroundColor: '#242323',
     color: 'white',
     borderRadius: 5,
     alignSelf: 'center',
   },
   buttonText: {
-    marginTop: 23,
+    paddingTop: 10,
     color: 'white',
     textAlign: 'center',
     justifyContent: 'center',
+    fontFamily: 'Avenir',
+  },
+  upcoming: {
+    color: 'white',
+    fontFamily: 'Avenir-Heavy',
+    paddingLeft: 14,
   },
 });
 

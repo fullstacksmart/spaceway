@@ -51,6 +51,8 @@ const styles = StyleSheet.create({
   videoStyle: {
     width: 350,
     height: 100,
+    borderTopLeftRadius: 15,
+    borderTopRightRadius: 15,
   },
 });
 
