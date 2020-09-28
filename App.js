@@ -1,19 +1,18 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import { Image, StyleSheet } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import Home from './Screens/Home';
 import ShuttleEvent from './Components/ShuttleEvent';
 import Spaceway from './splashScreens/Spaceway';
-// import MarsWeather from './Components/MarsWeather';
 import Listing from './Components/Listing';
 
-import { Image, StyleSheet } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
 import ISSTracker from './Components/ISSTracker';
 
 const Stack = createStackNavigator();
 
-const URL = 'http://localhost:3000/shuttles';
+const URL = 'https://run.mocky.io/v3/89e34af2-3209-48aa-a5b7-2c175eb1df4b';
 const ISSurl = 'http://api.open-notify.org/iss-now.json';
 
 const App = () => {
@@ -32,11 +31,15 @@ const App = () => {
     const coordinates = await fetch(ISSurl);
     if (coordinates.ok) {
       const location = await coordinates.json();
+      console.log('locationNOW', location);
       setLocation(location);
     }
   }, []);
 
   useEffect(() => {
+    // setInterval(() => {
+    //   handleFetchLocation();
+    // }, 3000);
     handleFetchShuttles();
     handleFetchLocation();
   }, []);
@@ -50,11 +53,11 @@ const App = () => {
           cardStyle: { backgroundColor: 'black' },
         }}
       >
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Spaceway"
           component={Spaceway}
           options={{ headerShown: false }}
-        /> */}
+        />
         <Stack.Screen
           name="Home"
           options={{
@@ -74,21 +77,15 @@ const App = () => {
         >
           {(props) => <Home shuttles={shuttles} {...props} />}
         </Stack.Screen>
-        <Stack.Screen
-          name="ShuttleEvent"
-          component={(props) => <ShuttleEvent {...props} />}
-          options={headerOptions}
-        />
-        <Stack.Screen
-          name="Listing"
-          component={(props) => <Listing shuttles={shuttles} {...props} />}
-          options={headerOptions}
-        />
-        <Stack.Screen
-          name="ISSTracker"
-          component={(props) => <ISSTracker location={location} {...props} />}
-          options={headerOptions}
-        />
+        <Stack.Screen name="ShuttleEvent" options={headerOptions}>
+          {(props) => <ShuttleEvent {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="Listing" options={headerOptions}>
+          {(props) => <Listing shuttles={shuttles} {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="ISSTracker" options={headerOptions}>
+          {(props) => <ISSTracker location={location} {...props} />}
+        </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

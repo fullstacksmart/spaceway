@@ -15,6 +15,12 @@ const ISSTracker = (props) => {
         provider={MapView.PROVIDER_GOOGLE}
         customMapStyle={mapDarkStyle}
         zoomEnabled={true}
+        initialRegion={{
+          latitude: ISS.iss_position.latitud,
+          longitude: ISS.iss_position.longitude,
+          latitudeDelta: 90,
+          longitudeDelta: 80,
+        }}
       >
         <Marker
           style={styles.icon}
