@@ -9,16 +9,20 @@ import Spaceway from './splashScreens/Spaceway';
 import Listing from './Components/Listing';
 
 import ISSTracker from './Components/ISSTracker';
+import MarsWeather from './Components/MarsWeather';
 
 const Stack = createStackNavigator();
 
 const URL = 'https://run.mocky.io/v3/89e34af2-3209-48aa-a5b7-2c175eb1df4b';
 const ISSurl = 'http://api.open-notify.org/iss-now.json';
+const MarsUrl = 'https://api.mars.spacexcompanion.app/v1/weather/latest';
 
 const App = () => {
   const [shuttles, setShuttles] = useState([]);
   const [location, setLocation] = useState([]);
+  const [weather, setWeather] = useState([]);
 
+  //DATA FETCHING
   const handleFetchShuttles = useCallback(async () => {
     const result = await fetch(URL);
     if (result.ok) {
@@ -36,12 +40,23 @@ const App = () => {
     }
   }, []);
 
+  const handleFetchWeather = useCallback(async () => {
+    const forecast = await fetch(MarsUrl);
+    if (forecast.ok) {
+      const weather = await forecast.json();
+      console.log('weather NOW', weather);
+      setWeather(weather);
+    }
+  }, []);
+
   useEffect(() => {
     // setInterval(() => {
     //   handleFetchLocation();
-    // }, 3000);
+    // }, 1000);
+
     handleFetchShuttles();
     handleFetchLocation();
+    handleFetchWeather();
   }, []);
 
   return (
@@ -53,11 +68,11 @@ const App = () => {
           cardStyle: { backgroundColor: 'black' },
         }}
       >
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Spaceway"
           component={Spaceway}
           options={{ headerShown: false }}
-        />
+        /> */}
         <Stack.Screen
           name="Home"
           options={{
@@ -85,6 +100,9 @@ const App = () => {
         </Stack.Screen>
         <Stack.Screen name="ISSTracker" options={headerOptions}>
           {(props) => <ISSTracker location={location} {...props} />}
+        </Stack.Screen>
+        <Stack.Screen name="MarsWeather" options={headerOptions}>
+          {(props) => <MarsWeather weather={weather} {...props} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

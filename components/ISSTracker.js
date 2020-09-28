@@ -5,6 +5,7 @@ import { StyleSheet, View, Dimensions, Text, Image } from 'react-native';
 const ISSicon = require('../assets/satelite.png');
 
 const ISSTracker = (props) => {
+  console.log('ISSprops', props);
   const ISS = props.location;
 
   return (
@@ -19,7 +20,7 @@ const ISSTracker = (props) => {
           latitude: ISS.iss_position.latitud,
           longitude: ISS.iss_position.longitude,
           latitudeDelta: 90,
-          longitudeDelta: 80,
+          longitudeDelta: 90,
         }}
       >
         <Marker
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   mapStyle: {
-    width: Dimensions.get('window').width - 50,
+    width: Dimensions.get('window').width - 25,
     height: Dimensions.get('window').height - 200,
     borderRadius: 10,
   },

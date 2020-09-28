@@ -5,7 +5,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   Text,
-  StatusBar,
 } from 'react-native';
 
 const Listing = ({ navigation, shuttles }) => {
@@ -47,7 +46,7 @@ const styles = StyleSheet.create({
   detailCard: {
     margin: 5,
     padding: 10,
-    backgroundColor: '#242323',
+    backgroundColor: 'rgba(232, 232, 232, 0.1)',
     borderColor: 'black',
     borderRadius: 10,
     marginHorizontal: 20,

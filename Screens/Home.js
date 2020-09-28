@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Text,
   StatusBar,
+  Dimensions,
 } from 'react-native';
 
 import ShuttlePreview from '../Components/ShuttlePreview';
@@ -42,6 +43,13 @@ const Home = ({ navigation, shuttles }) => {
       >
         <Text style={styles.buttonText}>ISS LIVE TRACKING</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        title="MarsWeather"
+        onPress={() => navigation.navigate('MarsWeather')}
+      >
+        <Text style={styles.buttonText}>WEATHER IN MARS</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -49,9 +57,9 @@ const Home = ({ navigation, shuttles }) => {
 const styles = StyleSheet.create({
   buttonStyle: {
     margin: 5,
-    width: 190,
+    width: Dimensions.get('window').width - 25,
     height: 40,
-    backgroundColor: '#242323',
+    backgroundColor: 'rgba(232, 232, 232, 0.1)',
     color: 'white',
     borderRadius: 5,
     alignSelf: 'center',

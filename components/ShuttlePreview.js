@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { Video } from 'expo-av';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const videoISS = require('../assets/isspreview.mp4');
-const videoMars = require('../assets/mars1.mp4');
+const videoMars = require('../assets/mars2.mp4');
 
 const ShuttlePreview = ({ shuttle }) =>
   shuttle.segment.map((el) => (
@@ -17,7 +18,12 @@ const ShuttlePreview = ({ shuttle }) =>
         resizeMode="cover"
         shouldPlay
         isLooping
-      />
+      >
+        <LinearGradient
+          colors={['rgba(0,0,0,9.8)', 'transparent']}
+          style={styles.gradient}
+        />
+      </Video>
       <Text style={styles.destinationStyle}>
         {el.destination === 'ISS' ? 'Discover' : 'Explore'} {el.destination}
       </Text>
@@ -29,9 +35,9 @@ const ShuttlePreview = ({ shuttle }) =>
 
 const styles = StyleSheet.create({
   shuttlePreview: {
-    backgroundColor: '#242323',
-    borderRadius: 15,
-    width: 350,
+    backgroundColor: 'rgba(232, 232, 232, 0.1)',
+    borderRadius: 5,
+    width: Dimensions.get('window').width - 25,
     marginVertical: 5,
     alignSelf: 'center',
   },
@@ -49,10 +55,16 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
   },
   videoStyle: {
-    width: 350,
-    height: 100,
-    borderTopLeftRadius: 15,
-    borderTopRightRadius: 15,
+    width: Dimensions.get('window').width - 25,
+    height: Dimensions.get('window').width - 285,
+  },
+  gradient: {
+    zIndex: 1,
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    height: Dimensions.get('window').width - 280,
   },
 });
 
