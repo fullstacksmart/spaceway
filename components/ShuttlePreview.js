@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   },
   videoStyle: {
     width: Dimensions.get('window').width - 25,
-    height: Dimensions.get('window').width - 285,
+    height: Dimensions.get('window').width - 265,
   },
   gradient: {
     zIndex: 1,

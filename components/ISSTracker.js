@@ -60,11 +60,15 @@ const styles = StyleSheet.create({
     height: 50,
   },
   corContainer: {
-    padding: 25,
+    padding: 15,
     alignItems: 'center',
+    width: Dimensions.get('window').width - 25,
+    backgroundColor: 'rgba(232, 232, 232, 0.1)',
+    margin: 10,
+    borderRadius: 10,
   },
   coordinates: {
-    fontFamily: 'Avenir',
+    fontFamily: 'Avenir-Heavy',
     color: 'white',
   },
 });

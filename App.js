@@ -7,9 +7,11 @@ import Home from './Screens/Home';
 import ShuttleEvent from './Components/ShuttleEvent';
 import Spaceway from './splashScreens/Spaceway';
 import Listing from './Components/Listing';
-
 import ISSTracker from './Components/ISSTracker';
 import MarsWeather from './Components/MarsWeather';
+import FormComp from './Components/FormComp';
+
+console.disableYellowBox = true;
 
 const Stack = createStackNavigator();
 
@@ -68,11 +70,11 @@ const App = () => {
           cardStyle: { backgroundColor: 'black' },
         }}
       >
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Spaceway"
           component={Spaceway}
           options={{ headerShown: false }}
-        /> */}
+        />
         <Stack.Screen
           name="Home"
           options={{
@@ -104,6 +106,9 @@ const App = () => {
         <Stack.Screen name="MarsWeather" options={headerOptions}>
           {(props) => <MarsWeather weather={weather} {...props} />}
         </Stack.Screen>
+        <Stack.Screen name="FormComp" options={headerOptions}>
+          {(props) => <FormComp />}
+        </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -124,6 +129,8 @@ const styles = StyleSheet.create({
 });
 
 const headerOptions = {
+  headerTintColor: 'rgb(203, 215, 246)',
+  headerBackTitleVisible: false,
   headerTitle: (props) => (
     <Image
       source={require('./assets/header.png')}

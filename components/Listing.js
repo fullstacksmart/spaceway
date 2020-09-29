@@ -5,37 +5,55 @@ import {
   StyleSheet,
   TouchableOpacity,
   Text,
+  Image,
+  ImageBackground,
 } from 'react-native';
 
-const Listing = ({ navigation, shuttles }) => {
-  console.log('props', shuttles);
-  // const destination = shuttles.segment.map((el) => (
-  //   <Text>{el.destination}</Text>
-  // ));
-  // const departure = shuttles.segment.map((el) => (
-  //   <Text>{el.departureTime}</Text>
-  // ));
-  // const shuttle = props.shuttles;
+const shuttleIcon = require('../assets/transbordador.png');
 
+const Listing = ({ navigation, shuttles }) => {
   return (
     <View>
       <FlatList
         data={shuttles}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <TouchableOpacity
-            title="button"
-            onPress={() => navigation.navigate('ShuttleEvent', item)}
-            shuttle={item}
-          >
-            <View style={styles.detailCard}>
-              <Text style={styles.ship}>{item.ship}</Text>
-              <Text style={styles.company}>{item.company}</Text>
-              <Text style={styles.duration}>{item.duration} days</Text>
-              <Text style={styles.destination}>Destination:</Text>
-              <Text style={styles.departure}>Departure:</Text>
-            </View>
-          </TouchableOpacity>
+          <View style={styles.general}>
+            <TouchableOpacity
+              style={{
+                position: 'relative',
+                borderWidth: 1,
+              }}
+              title="button"
+              onPress={() => navigation.navigate('ShuttleEvent', item)}
+              shuttle={item}
+            >
+              <ImageBackground
+                source={shuttleIcon}
+                style={{
+                  height: 75,
+                  width: 75,
+                  opacity: 0.6,
+                  position: 'absolute',
+                  marginLeft: 270,
+                  marginTop: 10,
+                }}
+              />
+              <View style={styles.detailCard}>
+                <Text style={styles.ship}>{item.ship}</Text>
+                <Text style={styles.company}>{item.company}</Text>
+                <Text style={styles.duration}>
+                  Duration: {item.segment[0].duration} days
+                </Text>
+                <Text style={styles.departure}>
+                  Destination: {item.segment[0].destination}
+                </Text>
+                <Text style={styles.departure}>
+                  Departure: {item.segment[0].departureTime}
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </View>
         )}
       />
     </View>
@@ -71,12 +89,21 @@ const styles = StyleSheet.create({
   destination: {
     fontFamily: 'Avenir-Heavy',
     fontSize: 15,
-    color: 'blue',
+    color: 'white',
   },
   departure: {
     fontFamily: 'Avenir',
     fontSize: 15,
-    color: 'red',
+    color: 'white',
+  },
+  imagebg: {
+    width: 400,
+    height: 100,
+    elevation: 1,
+  },
+  general: {
+    flex: 1,
+    justifyContent: 'center',
   },
 });
 
