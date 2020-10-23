@@ -4,10 +4,7 @@ import {
   Text,
   StyleSheet,
   Image,
-  Alert,
-  Button,
   Dimensions,
-  TextInput,
   TouchableOpacity,
 } from 'react-native';
 
@@ -18,26 +15,28 @@ const shuttleIcon = require('../assets/transbordador.png');
 
 const ShuttleEvent = (props) => {
   const shuttle = props.route.params;
-  const destination = shuttle.segment.map((el) => (
-    <Text>{el.destination}</Text>
-  ));
+
   const departure = shuttle.segment.map((el) => (
     <Text>{el.departureTime}</Text>
   ));
 
+  const img =
+    props.route.params.ship === 'Achilles'
+      ? require('../assets/craft2.png')
+      : require('../assets/craft1.png');
+
+  const dest = props.route.params.ship === 'Olympia' ? 'ISS' : 'Mars';
+  const num = props.route.params.ship === 'Achilles' ? 'V770' : 'B0894';
+
   return (
     <View style={styles.detailsCard}>
       <View style={styles.upperCard}>
-        <Text style={styles.flight}>BO894 | {shuttle.company}</Text>
+        <Text style={styles.flight}>
+          {num} | {shuttle.company}
+        </Text>
         <Text style={styles.status}>Active</Text>
       </View>
-      <Image
-        style={styles.img}
-        source={{
-          uri:
-            'https://www.teslarati.com/wp-content/uploads/2019/09/Crew-Dragon-DM-1-orbit-tall-pano-SpaceX-crop-3.jpg',
-        }}
-      />
+      <Image style={styles.img} source={img} />
       <LinearGradient
         colors={['rgba(0,0,0,1)', 'transparent']}
         style={styles.gradient}
@@ -53,7 +52,7 @@ const ShuttleEvent = (props) => {
           </View>
 
           <View style={styles.destination}>
-            <Text style={styles.textDes}>ISS</Text>
+            <Text style={styles.textDes}>{dest}</Text>
             <Text style={styles.textDate}>06-FEB-2024</Text>
           </View>
         </View>

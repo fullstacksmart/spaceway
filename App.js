@@ -52,12 +52,12 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    // setInterval(() => {
-    //   handleFetchLocation();
-    // }, 1000);
+    setInterval(() => {
+      handleFetchLocation();
+    }, 1000);
 
     handleFetchShuttles();
-    handleFetchLocation();
+    // handleFetchLocation();
     handleFetchWeather();
   }, []);
 
